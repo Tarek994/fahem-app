@@ -55,7 +55,8 @@ class ServicesWidget extends StatelessWidget {
                               Routes.serviceDetailsScreen,
                               arguments: ServiceDetailsArgs(
                                 service: homeProvider.services[index],
-                                color: index % 2 == 0 ? ColorsManager.lightPrimaryColor : ColorsManager.lightSecondaryColor,
+                                color: Colors.redAccent,
+                                // color: index % 2 == 0 ? ColorsManager.lightPrimaryColor : ColorsManager.lightSecondaryColor,
                               ),
                             );
                           },
@@ -63,7 +64,8 @@ class ServicesWidget extends StatelessWidget {
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  color: index % 2 == 0 ? ColorsManager.lightPrimaryColor : ColorsManager.lightSecondaryColor,
+                                  //color: index % 2 == 0 ? ColorsManager.lightPrimaryColor : ColorsManager.lightSecondaryColor,
+                                  color: Colors.redAccent ,
                                   borderRadius: BorderRadius.circular(SizeManager.s10),
                                 ),
                                 child: Row(

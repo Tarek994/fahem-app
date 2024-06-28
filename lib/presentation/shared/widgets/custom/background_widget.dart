@@ -17,7 +17,7 @@ class BackgroundWidget extends StatelessWidget {
       return Stack(
         children: [
           Image.asset(
-            ImagesManager.backgroundScreen,
+            ImagesManager.fahemServices2,
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,

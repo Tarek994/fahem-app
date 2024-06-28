@@ -59,7 +59,7 @@ class MainCategoriesWidget extends StatelessWidget {
                         padding: const EdgeInsets.all(SizeManager.s10),
                         decoration: BoxDecoration(
                           //d1
-                          color: Colors.blue.shade800,
+                          color: Color(0xffccdcea),
                           borderRadius: BorderRadius.circular(SizeManager.s10),
                         ),
                         child: Column(

@@ -19,6 +19,8 @@ class ImagesManager {
   static const String enterData = "$imagesPath/enter_data.png";
   static const String backgroundScreen = "$imagesPath/background_screen.jpg";
   static const String fahemServices = "$imagesPath/fahem_services.png";
+  static const String fahemServices2 = "$imagesPath/on_boarding/lawbg.jpg";
+  static const String fahemServices3 = "$imagesPath/laebg22.jpg";
   static const String splashScreen = "$imagesPath/splash_screen.gif";
 
   static const String admins = "$imagesPath/admins.png";

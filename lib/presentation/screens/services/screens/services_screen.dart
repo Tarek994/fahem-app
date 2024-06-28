@@ -43,7 +43,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
           scrollController: provider.scrollController,
           isSupportAppBar: false,
           isShowBackground: true,
-          scaffoldColor: ColorsManager.white,
+          scaffoldColor: Colors.white,
           goToInsertScreen: null,
           screenTitle: StringsManager.services,
           searchFilterOrderWidget: null,
@@ -68,7 +68,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
               statusBarColor: Colors.transparent,
               statusBarIconBrightness: Brightness.light,
             ),
-            backgroundColor: Colors.transparent,
+            backgroundColor: Colors.white,
             leading: const MyBackButton(),
             expandedHeight: SizeManager.s300,
             collapsedHeight: SizeManager.s100,
@@ -76,29 +76,31 @@ class _ServicesScreenState extends State<ServicesScreen> {
               alignment: Alignment.bottomCenter,
               children: [
                 Image.asset(
-                  ImagesManager.fahemServices,
+                  ImagesManager.fahemServices3,
                   width: double.infinity,
                   height: SizeManager.s350,
                   fit: BoxFit.cover,
                 ),
                 Container(
                   width: double.infinity,
-                  height: SizeManager.s350,
+                  height: SizeManager.s300,
                   color: ColorsManager.black.withOpacity(0.5),
                 ),
                 Container(
                   height: SizeManager.s20,
                   decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.transparent,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(SizeManager.s20),
                       topRight: Radius.circular(SizeManager.s20),
                     ),
-                    image: DecorationImage(
-                      image: AssetImage(ImagesManager.backgroundScreen),
-                      fit: BoxFit.cover,
-                    ),
+                    // image: DecorationImage(
+                    //   image: AssetImage(ImagesManager.fahemServices2),
+                    //   fit: BoxFit.cover,
+                    // ),
+
                   ),
+
                 ),
               ],
             ),
@@ -108,9 +110,21 @@ class _ServicesScreenState extends State<ServicesScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.linear_scale_sharp,
+                      color: ColorsManager.veryDarkBlue,
+                    ),
+                  ],
+                ),
                 Text(
                   Methods.getText(StringsManager.fahemServices),
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: SizeManager.s24, fontWeight: FontWeightManager.black),
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: SizeManager.s24,
+                      fontWeight: FontWeightManager.black,
+                  color: ColorsManager.veryDarkBlue
+                  ),
+
                 ),
                 const SizedBox(height: SizeManager.s5),
                 Text(

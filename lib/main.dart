@@ -11,6 +11,7 @@ import 'package:fahem/presentation/screens/home/screens/home_screen.dart';
 import 'package:fahem/presentation/screens/splash/widgets/build_page_view.dart';
 import 'package:fahem/presentation/screens/wallet/screens/kashier_payment_webview.dart';
 import 'package:fahem/presentation/shared/controllers/social_media_provider.dart';
+import 'package:fahem/splogin.dart';
 import 'package:fahem/test%20page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -65,24 +66,11 @@ void main() async {
           child: Builder(
             builder: (context) {
               MyProviders.init(context);
-              return MyApp();
-             // return MultiProvider(
-             //    providers: [
-             //      ChangeNotifierProvider(create: (_) => HomeProvider()),
-             //      ChangeNotifierProvider(create: (_) => HomeProvider()),
-             //      // Add other providers if needed
-             //    ],
-             //    child: MaterialApp(
-             //      title: 'Your App',
-             //      home: AccountsScreen(),
-             //    ),
-             //  );
-              //  return MultiProvider(
-              // providers: [
-              // ChangeNotifierProvider(create: (_) => AccountsProvider(accountsArgs: routeSettings.arguments)),
-              // ],
-              // child: const AccountsScreen(),
-              // );
+              return MaterialApp(
+                home: loginaReg() ,
+              );
+
+
 
             },
           ),

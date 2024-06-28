@@ -175,7 +175,7 @@ class TemplateListScreen extends StatelessWidget {
                   statusBarColor: appBarColor ?? (searchFilterOrderWidget == null ? ColorsManager.white : ColorsManager.grey200),
                   statusBarIconBrightness: Brightness.dark,
                 ),
-                backgroundColor: appBarColor ?? (searchFilterOrderWidget == null ? ColorsManager.white : ColorsManager.grey200),
+                backgroundColor: appBarColor ?? (searchFilterOrderWidget == null ? ColorsManager.white : ColorsManager.white),
                 pinned: pinned,
                 centerTitle: true,
                 leading: isSupportBack ? const MyBackButton() : null,

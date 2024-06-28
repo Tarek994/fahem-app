@@ -31,16 +31,18 @@ class ServiceListItem extends StatelessWidget {
           ),
         );
       },
-      color: index % 2 == 0 ? ColorsManager.lightPrimaryColor : ColorsManager.lightSecondaryColor,
+      //color
+      color: Color(0xF5dee7ef),
       child: Container(
         constraints: const BoxConstraints(
           minHeight: SizeManager.s60,
+          minWidth: SizeManager.s60
         ),
         child: Center(
           child: Text(
             MyProviders.appProvider.isEnglish ? serviceModel.nameEn : serviceModel.nameAr,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-              color: ColorsManager.white,
+              color: ColorsManager.veryDarkBlue,
               fontSize: SizeManager.s22,
               fontWeight: FontWeightManager.bold,
             ),

@@ -12,7 +12,7 @@ class MyBackButton extends StatelessWidget {
 
   const MyBackButton({
     super.key,
-    this.buttonColor = ColorsManager.lightPrimaryColor,
+    this.buttonColor = ColorsManager.veryDarkBlue,
     this.iconColor = ColorsManager.white,
     this.width,
     this.height,
