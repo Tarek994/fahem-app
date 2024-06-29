@@ -1,3 +1,4 @@
+import 'package:fahem/core/resources/colors_manager.dart';
 import 'package:fahem/core/resources/fonts_manager.dart';
 import 'package:fahem/core/resources/strings_manager.dart';
 import 'package:fahem/core/resources/values_manager.dart';
@@ -39,7 +40,10 @@ class _SearchScreenState extends State<SearchScreen> {
           reFetchData: () async => await provider.reFetchData(),
           scrollController: provider.scrollController,
           goToInsertScreen: null,
-          isSupportAppBar: false,
+          scaffoldColor: ColorsManager.shadowblue,
+          isSupportAppBar: true,
+          appBarColor: Colors.transparent,
+           title: 'Fahem',
           searchFilterOrderWidget: SearchFilterOrderWidget(
             hintText: StringsManager.searchByName,
             ordersItems: const [OrderByType.accountsNewestFirst, OrderByType.accountsOldestFirst],

@@ -55,8 +55,8 @@ class ServicesWidget extends StatelessWidget {
                               Routes.serviceDetailsScreen,
                               arguments: ServiceDetailsArgs(
                                 service: homeProvider.services[index],
-                                color: Colors.redAccent,
-                                // color: index % 2 == 0 ? ColorsManager.lightPrimaryColor : ColorsManager.lightSecondaryColor,
+                                //color: Colors.redAccent,
+                                 color: index % 2 == 0 ? ColorsManager.lightPrimaryColor : ColorsManager.lightSecondaryColor,
                               ),
                             );
                           },
@@ -64,8 +64,9 @@ class ServicesWidget extends StatelessWidget {
                             children: [
                               Container(
                                 decoration: BoxDecoration(
+
                                   //color: index % 2 == 0 ? ColorsManager.lightPrimaryColor : ColorsManager.lightSecondaryColor,
-                                  color: Colors.redAccent ,
+                                  color: ColorsManager.shadowblue ,
                                   borderRadius: BorderRadius.circular(SizeManager.s10),
                                 ),
                                 child: Row(
@@ -76,7 +77,7 @@ class ServicesWidget extends StatelessWidget {
                                         child: Center(
                                           child: Text(
                                             MyProviders.appProvider.isEnglish ? homeProvider.services[index].nameEn : homeProvider.services[index].nameAr,
-                                            style: Theme.of(context).textTheme.displayLarge!.copyWith(color: ColorsManager.white, fontWeight: FontWeightManager.black),
+                                            style: Theme.of(context).textTheme.displayLarge!.copyWith(color: ColorsManager.veryDarkBlue, fontWeight: FontWeightManager.black),
                                           ),
                                         ),
                                       ),

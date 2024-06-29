@@ -4,6 +4,7 @@ import 'package:fahem/core/resources/values_manager.dart';
 import 'package:fahem/core/utilities/enums.dart';
 import 'package:fahem/core/utilities/my_providers.dart';
 import 'package:fahem/presentation/screens/splash/widgets/my_logo.dart';
+import 'package:fahem/splogin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:fahem/core/resources/strings_manager.dart';
@@ -25,7 +26,8 @@ class MainProvider with ChangeNotifier {
         message: Methods.getText(StringsManager.youMustLoginFirst).toCapitalized(),
       ).then((value) {
         if(value) {
-          Navigator.pushNamed(context, Routes.loginWithPhoneScreen);
+          //Navigator.pushNamed(context, Routes.loginWithPhoneScreen);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => loginReg(),));
         }
       });
       return;
@@ -94,18 +96,18 @@ class MainProvider with ChangeNotifier {
         ),
       );
     }
-    if(_currentPage == BottomNavigationBarPages.menu) {
-      return Text(
-        MyProviders.authenticationProvider.currentUser == null
-            ? Methods.getText(StringsManager.menu).toCapitalized()
-            : MyProviders.authenticationProvider.currentUser!.fullName,
-        textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.titleLarge!.copyWith(
-          fontWeight: FontWeightManager.black,
-          fontSize: SizeManager.s24,
-        ),
-      );
-    }
+    // if(_currentPage == BottomNavigationBarPages.menu) {
+    //   return Text(
+    //     MyProviders.authenticationProvider.currentUser == null
+    //         ? Methods.getText(StringsManager.menu).toCapitalized()
+    //         : MyProviders.authenticationProvider.currentUser!.fullName,
+    //     textAlign: TextAlign.center,
+    //     style: Theme.of(context).textTheme.titleLarge!.copyWith(
+    //       fontWeight: FontWeightManager.black,
+    //       fontSize: SizeManager.s24,
+    //     ),
+    //   );
+    // }
     return Text(
       Methods.getText(_currentPage.title).toTitleCase(),
       textAlign: TextAlign.center,

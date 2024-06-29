@@ -126,6 +126,7 @@ class Dialogs {
               children: [
                 Expanded(
                   child: CustomButton(
+                    
                     buttonType: ButtonType.text,
                     onPressed: () {
                       Navigator.pop(context);
@@ -140,7 +141,7 @@ class Dialogs {
                 const SizedBox(width: SizeManager.s20),
                 Expanded(
                   child: CustomButton(
-                    buttonType: ButtonType.text,
+                      buttonType: ButtonType.text, // Assuming you have this enum
                     onPressed: () {
                       Navigator.pop(context);
                       result = false;

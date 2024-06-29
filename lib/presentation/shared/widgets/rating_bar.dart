@@ -1,4 +1,5 @@
 import 'package:fahem/core/resources/assets_manager.dart';
+import 'package:fahem/core/resources/colors_manager.dart';
 import 'package:fahem/core/resources/values_manager.dart';
 import 'package:fahem/core/utilities/my_providers.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,9 @@ class RatingBar extends StatelessWidget {
         if (index2.toDouble() >= numberOfStars) {
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: padding),
-            child: Image.asset(ImagesManager.ratingEmpty, width: starSize, height: starSize),
+            child: Image.asset(ImagesManager.ratingEmpty, width: starSize, height: starSize,
+
+            ),
           );
         }
         else if (index2.toDouble() > numberOfStars - 1 && index2.toDouble() < numberOfStars) {
@@ -33,13 +36,16 @@ class RatingBar extends StatelessWidget {
               MyProviders.appProvider.isEnglish ? ImagesManager.ratingHalfLeft : ImagesManager.ratingHalfRight,
               width: starSize,
               height: starSize,
+              color: ColorsManager.veryDarkBlue,
             ),
           );
         }
         else {
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: padding),
-            child: Image.asset(ImagesManager.ratingFull, width: starSize, height: starSize),
+            child: Image.asset(ImagesManager.ratingFull, width: starSize, height: starSize,
+            color: ColorsManager.veryDarkBlue ,
+            ),
           );
         }
       }),

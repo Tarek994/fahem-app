@@ -59,7 +59,7 @@ class MainCategoriesWidget extends StatelessWidget {
                         padding: const EdgeInsets.all(SizeManager.s10),
                         decoration: BoxDecoration(
                           //d1
-                          color: Color(0xffccdcea),
+                          color: ColorsManager.shadowblue,
                           borderRadius: BorderRadius.circular(SizeManager.s10),
                         ),
                         child: Column(
@@ -77,7 +77,7 @@ class MainCategoriesWidget extends StatelessWidget {
                               child: Center(
                                 child: Text(
                                   MyProviders.appProvider.isEnglish ? homeProvider.mainCategories[index].nameEn : homeProvider.mainCategories[index].nameAr,
-                                  style: Theme.of(context).textTheme.displayMedium!.copyWith(color: ColorsManager.white, fontWeight: FontWeightManager.bold),
+                                  style: Theme.of(context).textTheme.displayMedium!.copyWith(color: ColorsManager.veryDarkBlue, fontWeight: FontWeightManager.bold),
                                   textAlign: TextAlign.center,
                                 ),
                               ),

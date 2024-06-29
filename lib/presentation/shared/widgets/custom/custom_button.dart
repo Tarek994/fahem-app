@@ -62,7 +62,7 @@ class CustomButton extends StatelessWidget {
     this.onPressed,
     this.width,
     this.height = SizeManager.s45,
-    this.buttonColor = ColorsManager.lightPrimaryColor,
+    this.buttonColor = ColorsManager.veryDarkBlue,
     this.borderColor = Colors.transparent,
     this.borderRadius = SizeManager.s10,
     this.borderWidth = SizeManager.s1,

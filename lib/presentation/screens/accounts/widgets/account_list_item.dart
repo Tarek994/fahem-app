@@ -30,7 +30,8 @@ class AccountListItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(SizeManager.s10),
       decoration: BoxDecoration(
-        color: index % 2 == 0 ? ColorsManager.lightPrimaryColor : ColorsManager.lightSecondaryColor,
+        color: Colors.white,
+        //color: index % 2 == 0 ? ColorsManager.lightPrimaryColor : ColorsManager.lightSecondaryColor,
         borderRadius: BorderRadius.circular(SizeManager.s10),
       ),
       child: Column(
@@ -73,7 +74,7 @@ class AccountListItem extends StatelessWidget {
                         isSupportFeatured: true,
                         maxLines: 1,
                         style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                          color: ColorsManager.white,
+                          color: ColorsManager.veryDarkBlue,
                           fontWeight: FontWeightManager.semiBold,
                           height: SizeManager.s1_8,
                         ),
@@ -84,7 +85,7 @@ class AccountListItem extends StatelessWidget {
                           accountModel.jobTitle!,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.displaySmall!.copyWith(color: ColorsManager.white, height: SizeManager.s1_5),
+                          style: Theme.of(context).textTheme.displaySmall!.copyWith(color: ColorsManager.veryDarkBlue, height: SizeManager.s1_5),
                         ),
                       ],
                     ],
@@ -98,7 +99,16 @@ class AccountListItem extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(IconsManager.clipboard, color: ColorsManager.white, width: SizeManager.s15, height: SizeManager.s15),
+                Container(
+               height: 25,
+                width: 25,
+            decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            color: ColorsManager.veryDarkBlue,
+        ),
+                  child: Image.asset(IconsManager.clipboard, color: ColorsManager.white, width: SizeManager.s15, height: SizeManager.s15
+                  ),
+                ),
                 const SizedBox(width: SizeManager.s5),
                 Expanded(
                   child: Wrap(
@@ -106,7 +116,7 @@ class AccountListItem extends StatelessWidget {
                       return Text(
                         // '${accountModel.tasks[index]} ${index == accountModel.tasks.length-1 ? '' : '-'} ',
                         '${accountModel.tasks[index]} ${index == accountModel.tasks.length-1 ? '' : ''} ',
-                        style: Theme.of(context).textTheme.displaySmall!.copyWith(color: ColorsManager.white, height: SizeManager.s1_8),
+                        style: Theme.of(context).textTheme.displaySmall!.copyWith(color: ColorsManager.veryDarkBlue, height: SizeManager.s1_8),
                       );
                     }),
                   ),
@@ -119,14 +129,24 @@ class AccountListItem extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(IconsManager.map, color: ColorsManager.white, width: SizeManager.s15, height: SizeManager.s15),
+                Container(
+                  height: 25,
+                  width: 25,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    color: ColorsManager.veryDarkBlue,
+                  ),
+
+                  child: Image.asset(IconsManager.map, color: ColorsManager.white, width: SizeManager.s15, height: SizeManager.s15,
+                  ),
+                ),
                 const SizedBox(width: SizeManager.s5),
                 Expanded(
                   child: Text(
                     accountModel.address!,
                     // maxLines: 1,
                     // overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.displaySmall!.copyWith(color: ColorsManager.white, height: SizeManager.s1_8),
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(color: ColorsManager.veryDarkBlue, height: SizeManager.s1_8),
                   ),
                 ),
               ],
@@ -137,11 +157,18 @@ class AccountListItem extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(IconsManager.money, color: ColorsManager.white, width: SizeManager.s15, height: SizeManager.s15),
+                Container(
+                    height: 25,
+                    width: 25,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(14),
+                      color: ColorsManager.veryDarkBlue,
+                    ),
+                    child: Image.asset(IconsManager.money, color: ColorsManager.white, width: SizeManager.s15, height: SizeManager.s15)),
                 const SizedBox(width: SizeManager.s5),
                 Text(
                   '${Methods.getText(StringsManager.consultationPrice).toCapitalized()}: ${accountModel.consultationPrice} ${Methods.getText(StringsManager.egp).toUpperCase()}',
-                  style: Theme.of(context).textTheme.displaySmall!.copyWith(color: ColorsManager.white),
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(color: ColorsManager.veryDarkBlue),
                 ),
               ],
             ),
@@ -167,7 +194,7 @@ class AccountListItem extends StatelessWidget {
                       child: Text(
                         accountModel.features[index],
                         style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                          color: ColorsManager.white,
+                          color: ColorsManager.veryDarkBlue,
                           fontSize: SizeManager.s10,
                         ),
                       ),
@@ -180,34 +207,37 @@ class AccountListItem extends StatelessWidget {
                 children: [
                   RatingBar(numberOfStars: accountModel.rating),
                   const SizedBox(height: SizeManager.s10),
-                  Text(
-                    '${Methods.getText(StringsManager.overallRatingOf).toCapitalized()} ${Methods.getWordStatusLabel(num: accountModel.numberOfReviews, label: WordStatusLabel.user)}',
-                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                      color: ColorsManager.white,
-                      fontSize: SizeManager.s10,
-                    ),
-                  ),
+                  // Text(
+                  //   '${Methods.getText(StringsManager.overallRatingOf).toCapitalized()} ${Methods.getWordStatusLabel(num: accountModel.numberOfReviews, label: WordStatusLabel.user)}',
+                  //   style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                  //     color: ColorsManager.white,
+                  //     fontSize: SizeManager.s10,
+                  //   ),
+                  // ),
                 ],
               ),
             ],
           ),
           const SizedBox(height: SizeManager.s10),
-          CustomButton(
-            onPressed: () {
-              FocusScope.of(context).unfocus();
-              Navigator.pushNamed(
-                context,
-                Routes.accountDetailsScreen,
-                arguments: accountModel,
-              );
-            },
-            buttonType: ButtonType.text,
-            text: Methods.getText(StringsManager.details).toUpperCase(),
-            width: double.infinity,
-            height: SizeManager.s35,
-            buttonColor: ColorsManager.white,
-            textColor: index % 2 == 0 ? ColorsManager.lightSecondaryColor : ColorsManager.lightPrimaryColor,
-            textFontWeight: FontWeightManager.black,
+          Center(
+            child: CustomButton(
+              onPressed: () {
+                FocusScope.of(context).unfocus();
+                Navigator.pushNamed(
+                  context,
+                  Routes.accountDetailsScreen,
+                  arguments: accountModel,
+                );
+              },
+              buttonType: ButtonType.text,
+              text: Methods.getText(StringsManager.details).toUpperCase(),
+              width: 75,
+              height: SizeManager.s35,
+              buttonColor: ColorsManager.veryDarkBlue,
+              textColor: Colors.white,
+              //textColor: index % 2 == 0 ? ColorsManager.lightSecondaryColor : ColorsManager.lightPrimaryColor,
+              textFontWeight: FontWeightManager.black,
+            ),
           ),
         ],
       ),

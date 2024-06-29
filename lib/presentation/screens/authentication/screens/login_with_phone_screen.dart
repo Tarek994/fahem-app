@@ -57,7 +57,7 @@ class _LoginWithPhoneScreenState extends State<LoginWithPhoneScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BackgroundWidget(
-        isShowBackground: true,
+        isShowBackground: false,
         child: Consumer<AuthenticationProvider>(
           builder: (context, authenticationProvider, child) {
             return CustomFullLoading(
@@ -127,7 +127,8 @@ class _LoginWithPhoneScreenState extends State<LoginWithPhoneScreen> {
                               ),
                             ),
                             const SizedBox(height: SizeManager.s30),
-                            if(authenticationProvider.isVerified && _phoneNumberController.text.trim() == _oldPhoneNumber) CustomButton(
+                            if(authenticationProvider.isVerified && _phoneNumberController.text.trim() == _oldPhoneNumber)
+                              CustomButton(
                               buttonType: ButtonType.text,
                               onPressed: () async {
                                 FocusScope.of(context).unfocus();

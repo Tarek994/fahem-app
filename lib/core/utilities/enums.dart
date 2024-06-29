@@ -229,8 +229,9 @@ enum BottomNavigationBarPages {
   home(title: StringsManager.home, page: HomeScreen(), image: IconsManager.home),
   search(title: StringsManager.theSearch, page: SearchScreen(), image: IconsManager.search),
   transactions(title: StringsManager.myTransactions, page: TransactionsScreen(), image: IconsManager.transaction),
-  wallet(title: StringsManager.myWallet, page: WalletHistoryScreen(), image: IconsManager.wallet),
-  menu(title: StringsManager.menu, page: MenuScreen(), image: IconsManager.menu);
+  wallet(title: StringsManager.myWallet, page: WalletHistoryScreen(), image: IconsManager.wallet);
+  // menu(title: StringsManager.menu, page: MenuScreen(), image: IconsManager.menu
+  // );
 
   final String title;
   final Widget page;

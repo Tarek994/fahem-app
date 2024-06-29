@@ -193,8 +193,8 @@ class _SearchFilterOrderWidgetState extends State<SearchFilterOrderWidget> {
                     globalSearchText = _textEditingControllerSearch.text.trim();
                     widget.reFetchData();
                   },
-                  buttonColor: Colors.transparent,
-                  textColor: ColorsManager.lightPrimaryColor,
+                  buttonColor: ColorsManager.veryDarkBlue,
+                  textColor: ColorsManager.veryDarkBlue,
                   buttonType: ButtonType.text,
                   text: Methods.getText(StringsManager.search).toCapitalized(),
                 ),

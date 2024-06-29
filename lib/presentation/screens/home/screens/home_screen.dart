@@ -11,6 +11,7 @@ import 'package:fahem/presentation/screens/home/widgets/latest_jobs_widget.dart'
 import 'package:fahem/presentation/screens/home/widgets/main_categories_widget.dart';
 import 'package:fahem/presentation/screens/home/widgets/playlists_widget.dart';
 import 'package:fahem/presentation/screens/home/widgets/services_widget.dart';
+import 'package:fahem/presentation/screens/menu/menu_screen.dart';
 import 'package:fahem/presentation/shared/widgets/custom/custom_carousel_slider.dart';
 import 'package:fahem/presentation/shared/widgets/custom/custom_full_loading.dart';
 import 'package:fahem/presentation/shared/widgets/image_widget.dart';
@@ -61,7 +62,10 @@ class _HomeScreenState extends State<HomeScreen> {
           appBar: AppBar(
             leading:
             IconButton(
-                onPressed: (){}, icon: Icon(Icons.menu)
+                onPressed: (){
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => MenuScreen()));
+
+                }, icon: Icon(Icons.menu)
             ),
             centerTitle: true,
             title:Container(

@@ -67,7 +67,7 @@ void main() async {
             builder: (context) {
               MyProviders.init(context);
               return MaterialApp(
-                home: loginaReg() ,
+                home: MyApp() ,
               );
 
 
