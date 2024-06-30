@@ -226,10 +226,12 @@ enum SecretConsultationReplyType {
 ////////////////////////////////////////////////////////////////////////////////
 
 enum BottomNavigationBarPages {
-  home(title: StringsManager.home, page: HomeScreen(), image: IconsManager.home),
-  search(title: StringsManager.theSearch, page: SearchScreen(), image: IconsManager.search),
-  transactions(title: StringsManager.myTransactions, page: TransactionsScreen(), image: IconsManager.transaction),
-  wallet(title: StringsManager.myWallet, page: WalletHistoryScreen(), image: IconsManager.wallet);
+  home(title: StringsManager.home, page: HomeScreen(), icon:Icons.home ),
+  wallet(title: StringsManager.myWallet, page: WalletHistoryScreen(), icon: Icons.account_balance_wallet_rounded),
+  search(title: StringsManager.theSearch, page: SearchScreen(), icon: Icons.search),
+  transactions(title: StringsManager.profile, page: TransactionsScreen(), icon: Icons.person),
+  //transactions2(title: 'Profile', page: TransactionsScreen(), image:IconsManager.profile2 ),
+  ;
   // menu(title: StringsManager.menu, page: MenuScreen(), image: IconsManager.menu
   // );
 

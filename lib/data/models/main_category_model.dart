@@ -26,4 +26,17 @@ class MainCategoryModel {
     numberOfCategories = int.parse(json['numberOfCategories'].toString());
     createdAt = json['createdAt'];
   }
+  String getLocalAssetPath() {
+    // Map mainCategoryId to specific image names
+    switch (mainCategoryId) {
+      case 1:
+        return 'assets/images/man1.png';
+      case 2:
+        return 'assets/images/man2.png';
+      case 3:
+        return 'assets/images/man3.png';
+      default:
+        return 'assets/images/default_category.png'; // A default image
+    }
+  }
 }

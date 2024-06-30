@@ -37,17 +37,21 @@ class ServicesWidget extends StatelessWidget {
                       onPressed: () {
                         Methods.routeTo(context, Routes.servicesScreen);
                       },
-                      title: StringsManager.fahemServices,
+                      title: 'Services',
+                      style: TextStyle(
+                        fontFamily: FontFamilyManager.poppinsb,
+                        color: ColorsManager.veryDarkBlue
+                      ),
                     ),
                   ),
                   const SizedBox(height: SizeManager.s10),
                   SizedBox(
-                    height: SizeManager.s100,
+                    height: SizeManager.s75+10,
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       padding: const EdgeInsets.symmetric(horizontal: SizeManager.s16),
                       itemBuilder: (context, index) => SizedBox(
-                        width: SizeManager.s225,
+                        width: 175,
                         child: InkWell(
                           onTap: () {
                             Methods.routeTo(
@@ -64,31 +68,40 @@ class ServicesWidget extends StatelessWidget {
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-
                                   //color: index % 2 == 0 ? ColorsManager.lightPrimaryColor : ColorsManager.lightSecondaryColor,
-                                  color: ColorsManager.shadowblue ,
-                                  borderRadius: BorderRadius.circular(SizeManager.s10),
+                                  color: ColorsManager.shadowblue,
+                                  borderRadius: BorderRadius.circular(SizeManager.s21),
                                 ),
                                 child: Row(
                                   children: [
+                                    Image.asset(
+                                      homeProvider.services[index].getLocalAssetPath(),// Adjust the path as needed
+                                      width: SizeManager.s85,
+                                      height: SizeManager.s85,
+                                      fit: BoxFit.fill,
+                                    ),
+                                    // ImageWidget(
+                                    //   image: homeProvider.services[index].getLocalAssetPath(),
+                                    //   imageDirectory: ApiConstants.servicesDirectory,
+                                    //   width: SizeManager.s100,
+                                    //   height: SizeManager.s100,
+                                    //   isShowFullImageScreen: false,
+                                    // ),
                                     Expanded(
                                       child: Container(
                                         padding: const EdgeInsets.all(SizeManager.s10),
                                         child: Center(
                                           child: Text(
                                             MyProviders.appProvider.isEnglish ? homeProvider.services[index].nameEn : homeProvider.services[index].nameAr,
-                                            style: Theme.of(context).textTheme.displayLarge!.copyWith(color: ColorsManager.veryDarkBlue, fontWeight: FontWeightManager.black),
+                                            style: Theme.of(context).textTheme.displayLarge!.copyWith(color: ColorsManager.veryDarkBlue, fontWeight: FontWeightManager.black,
+                                            fontFamily: FontFamilyManager.poppins,
+                                              fontSize: 11,
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                    ImageWidget(
-                                      image: homeProvider.services[index].serviceImage,
-                                      imageDirectory: ApiConstants.servicesDirectory,
-                                      width: SizeManager.s100,
-                                      height: SizeManager.s100,
-                                      isShowFullImageScreen: false,
-                                    ),
+
                                   ],
                                 ),
                               ),

@@ -79,7 +79,8 @@ class IconsManager {
   static const String home = "$iconsPath/home.png";
   static const String search = "$iconsPath/search.png";
   static const String transaction = "$iconsPath/transaction.png";
-  static const String wallet = "$iconsPath/wallet.png";
+  static const String wallet = "$iconsPath/mywallet.png";
+  static const String profile2 = "$iconsPath/profile2.png";
   static const String menu = "$iconsPath/menu.png";
   static const String money = "$iconsPath/money.png";
   static const String map = "$iconsPath/map.png";

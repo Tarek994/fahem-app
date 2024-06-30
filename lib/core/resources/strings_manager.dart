@@ -1088,6 +1088,7 @@ class StringsManager {
   static const String egyptianPound = "egyptianPound";
   static const String accountBalance = "accountBalance";
   static const String fahemServices = "fahemServices";
+  static const String Services = "Services";
   static const String bookingPeriods = "bookingPeriods";
   static const String theAccountIsVerified = "theAccountIsVerified";
   static const String features = "features";

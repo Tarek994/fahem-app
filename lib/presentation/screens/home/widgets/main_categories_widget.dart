@@ -64,20 +64,28 @@ class MainCategoriesWidget extends StatelessWidget {
                         ),
                         child: Column(
                           children: [
-                            ImageWidget(
-                              image: homeProvider.mainCategories[index].image,
-                              imageDirectory: ApiConstants.mainCategoriesDirectory,
+                            Image.asset(
+                              homeProvider.mainCategories[index].getLocalAssetPath(),// Adjust the path as needed
                               width: SizeManager.s80,
                               height: SizeManager.s80,
                               fit: BoxFit.fill,
-                              isShowFullImageScreen: false,
                             ),
+                            // ImageWidget(
+                            //   image: homeProvider.mainCategories[index].image,
+                            //   imageDirectory: ApiConstants.mainCategoriesDirectory,
+                            //   width: SizeManager.s80,
+                            //   height: SizeManager.s80,
+                            //   fit: BoxFit.fill,
+                            //   isShowFullImageScreen: false,
+                            // ),
                             SizedBox(
                               height: SizeManager.s40,
                               child: Center(
                                 child: Text(
                                   MyProviders.appProvider.isEnglish ? homeProvider.mainCategories[index].nameEn : homeProvider.mainCategories[index].nameAr,
-                                  style: Theme.of(context).textTheme.displayMedium!.copyWith(color: ColorsManager.veryDarkBlue, fontWeight: FontWeightManager.bold),
+                                  style: Theme.of(context).textTheme.displayMedium!.copyWith(color: ColorsManager.veryDarkBlue, fontWeight: FontWeightManager.bold,
+                                  fontFamily: FontFamilyManager.poppins,
+                                  ),
                                   textAlign: TextAlign.center,
                                 ),
                               ),

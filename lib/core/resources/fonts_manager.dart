@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class FontFamilyManager {
   static const String montserratArabic = 'MontserratArabic';
   static const String avenirArabic = 'AvenirArabic';
+  static const String poppins = 'Poppins';
+  static const String poppinsb = 'Poppinsb';
 }
 
 class FontWeightManager {

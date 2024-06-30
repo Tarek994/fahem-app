@@ -35,15 +35,31 @@ class MainTitle extends StatelessWidget {
               const SizedBox(width: SizeManager.s5),
             ],
             Text(
-              Methods.getText(title).toTitleCase(),
+              (StringsManager.value.contains(title) ? Methods.getText(title) : title).toTitleCase(),
               style: style ?? Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: SizeManager.s18,
                 fontWeight: FontWeightManager.black,
+                fontFamily: FontFamilyManager.poppins,
+                color: ColorsManager.veryDarkBlue
               ),
             ),
           ],
         ),
-        if(onPressed != null) CustomButton(
+        if(onPressed != null)
+        // Row(
+        //   children: [
+        //     Text('More'),
+        //     Container(
+        //       child: IconButton(onPressed: () =>  onPressed, icon: Icon(Icons.keyboard_arrow_left,
+        //       color: Colors.white,
+        //       ),
+        //
+        //       ),
+        //     )
+        //   ],
+        //
+        // )
+        CustomButton(
           onPressed: onPressed,
           buttonType: ButtonType.postImage,
           text: Methods.getText(StringsManager.more).toTitleCase(),
@@ -56,7 +72,7 @@ class MainTitle extends StatelessWidget {
           height: SizeManager.s30,
           borderRadius: SizeManager.s5,
           buttonColor: Colors.transparent,
-          textColor: ColorsManager.lightPrimaryColor,
+          textColor: ColorsManager.shadowblue,
           centerSpace: SizeManager.s5,
         ),
       ],

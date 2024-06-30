@@ -111,8 +111,8 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
                         child: ImageWidget(
                           image: slider.image,
                           imageDirectory: widget.imageDirectory,
-                          width: double.infinity,
-                          height: double.infinity,
+                          width: 350,
+                          height: 200,
                           borderRadius: widget.borderRadius,
                           customBorderRadius: widget.customBorderRadius,
                           fit: BoxFit.fill,

@@ -62,10 +62,15 @@ class _HomeScreenState extends State<HomeScreen> {
           appBar: AppBar(
             leading:
             IconButton(
+
                 onPressed: (){
                   Navigator.push(context,MaterialPageRoute(builder: (context) => MenuScreen()));
 
-                }, icon: Icon(Icons.menu)
+                }, icon: Image(image: AssetImage('assets/images/menulogo.png',),
+                    height: 25,
+                    width: 25,
+                    fit: BoxFit.fill,
+            )
             ),
             centerTitle: true,
             title:Container(
@@ -142,9 +147,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              '${Methods.getText(StringsManager.welcome).toUpperCase()} 👋',
+                              '${Methods.getText(StringsManager.welcome).toUpperCase()}!',
                               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                color: ColorsManager.veryDarkBlue,
                                 fontWeight: FontWeightManager.black,
+                                fontFamily: FontFamilyManager.poppinsb
                               ),
                             ),
                             // const SizedBox(height: SizeManager.s5),
@@ -154,7 +161,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   : MyProviders.authenticationProvider.currentUser!.fullName,
                               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                 fontWeight: FontWeightManager.black,
-                                fontSize: SizeManager.s20,
+                                fontSize: 14,
+                                fontFamily: FontFamilyManager.poppins,
+                                color: ColorsManager.veryDarkBlue
                               ),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
@@ -215,6 +224,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
+               const SliverToBoxAdapter(
+                 child: Padding(
+                   padding: const EdgeInsets.symmetric(horizontal: SizeManager.s16),
+                   child: Text('Popular Services',
+                       style: TextStyle(
+                           fontSize: 14,
+                           fontFamily: FontFamilyManager.poppinsb,
+                           fontWeight: FontWeight.bold,
+                           color: ColorsManager.veryDarkBlue,
+                       ) ,
+                                  ),
+                 ),
+               ),
+                const SliverToBoxAdapter(child: SizedBox(height: 10)),
                 const SliverToBoxAdapter(child: MainCategoriesWidget()),
 
                 SliverToBoxAdapter(
@@ -226,9 +249,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPageChanged: (index, _) => homeProvider.changeCurrentSliderIndex(index),
                       imageDirectory: ApiConstants.slidersDirectory,
                       currentSliderIndex: homeProvider.currentSliderIndex,
-                      height: SizeManager.s220,
+                      height: 150,
                       // horizontalPadding: SizeManager.s16,
-                      viewportFraction: 0.8,
+                      viewportFraction: 0.5,
                       borderRadius: SizeManager.s10,
                     ),
                   ),

@@ -50,4 +50,27 @@ class ServiceModel {
 
     mainCategory = MainCategoryModel.fromJson(json['mainCategory']);
   }
+  String getLocalAssetPath() {
+    // Map mainCategoryId to specific image names
+    switch (serviceId) {
+      case 1:
+        return 'assets/images/man1.png';
+      case 2:
+        return 'assets/images/man2.png';
+      case 3:
+        return 'assets/images/man3.png';
+      case 4:
+        return 'assets/images/man1.png';
+      case 5:
+        return 'assets/images/man2.png';
+      case 6:
+        return 'assets/images/man3.png';
+      case 7:
+        return 'assets/images/man2.png';
+      case 8:
+        return 'assets/images/man3.png';
+      default:
+        return 'assets/images/default_category.png'; // A default image
+    }
+  }
 }
