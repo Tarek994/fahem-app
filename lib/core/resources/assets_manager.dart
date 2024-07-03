@@ -121,6 +121,7 @@ class LottieManager {
   static const String success = "$lottiePath/success.json";
   static const String failure = "$lottiePath/failure.json";
   static const String notFound = "$lottiePath/not_found.json";
+  static const String notFound2 = "$lottiePath/lottienot.json";
 }
 
 class SvgManager {

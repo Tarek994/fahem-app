@@ -1,3 +1,4 @@
+import 'package:fahem/core/resources/colors_manager.dart';
 import 'package:fahem/core/resources/fonts_manager.dart';
 import 'package:fahem/core/resources/routes_manager.dart';
 import 'package:fahem/core/resources/values_manager.dart';
@@ -11,6 +12,8 @@ import 'package:fahem/core/resources/strings_manager.dart';
 import 'package:fahem/core/utilities/dialogs.dart';
 import 'package:fahem/core/utilities/extensions.dart';
 import 'package:fahem/core/utilities/methods.dart';
+
+import '../../screens/menu/menu_screen.dart';
 
 class MainProvider with ChangeNotifier {
 
@@ -44,24 +47,77 @@ class MainProvider with ChangeNotifier {
         height: SizeManager.s25,
       );
     }
-    if(_currentPage == BottomNavigationBarPages.search) {
-      return SizedBox(
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              Methods.getText(StringsManager.atYourService).toCapitalized(),
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeightManager.black),
-            ),
-            Text(
-              Methods.getText(StringsManager.whatAreYouLookingFor).toCapitalized(),
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: SizeManager.s25, fontWeight: FontWeightManager.black),
-            ),
-          ],
-        ),
-      );
-    }
+    // if(_currentPage == BottomNavigationBarPages.search) {
+    //   // return Container(
+    //   //   width: double.infinity,
+    //   //   color: ColorsManager.shadowblue,
+    //   //
+    //   //   child: Column(
+    //   //     crossAxisAlignment: CrossAxisAlignment.start,
+    //   //     children: [
+    //   //       Container(
+    //   //         width: double.infinity,
+    //   //         height: 25,
+    //   //         color: ColorsManager.shadowblue,
+    //   //         child: Row(
+    //   //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //   //           children: [
+    //   //             IconButton(
+    //   //
+    //   //                 onPressed: (){
+    //   //                   Navigator.push(context,MaterialPageRoute(builder: (context) => MenuScreen()));
+    //   //
+    //   //                 }, icon: Image(image: AssetImage('assets/images/menulogo.png',),
+    //   //               height: 25,
+    //   //               width: 25,
+    //   //               fit: BoxFit.fill,
+    //   //             )
+    //   //             ),
+    //   //             Container(
+    //   //               height: 40,
+    //   //               width: 100,
+    //   //               decoration: BoxDecoration(
+    //   //                   image: DecorationImage(
+    //   //                       image:AssetImage('assets/icons/fahemlogo.png'
+    //   //                       ),
+    //   //                       fit: BoxFit.cover
+    //   //                   )
+    //   //               ),
+    //   //             ),
+    //   //
+    //   //             IconButton(
+    //   //
+    //   //                 onPressed: (){
+    //   //                   Navigator.push(context,MaterialPageRoute(builder: (context) => MenuScreen()));
+    //   //
+    //   //                 }, icon: Image(image: AssetImage('assets/images/menulogo.png',),
+    //   //               height: 25,
+    //   //               color: Colors.transparent,
+    //   //               width: 25,
+    //   //               fit: BoxFit.fill,
+    //   //             )
+    //   //             ),
+    //   //           ],
+    //   //
+    //   //         ),
+    //   //       )
+    //   //       // Text(
+    //   //       //   Methods.getText(StringsManager.atYourService).toCapitalized(),
+    //   //       //   style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeightManager.black,
+    //   //       //   color: ColorsManager.veryDarkBlue
+    //   //       //   ),
+    //   //       // ),
+    //   //       ,
+    //   //       Text(
+    //   //         Methods.getText(StringsManager.whatAreYouLookingFor).toCapitalized(),
+    //   //         style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: SizeManager.s25, fontWeight: FontWeightManager.black,
+    //   //         color: ColorsManager.veryDarkBlue,
+    //   //         ),
+    //   //       ),
+    //   //     ],
+    //   //   ),
+    //   // );
+    // }
     if(_currentPage == BottomNavigationBarPages.transactions) {
       return SizedBox(
         width: double.infinity,
@@ -108,11 +164,12 @@ class MainProvider with ChangeNotifier {
     //     ),
     //   );
     // }
-    return Text(
-      Methods.getText(_currentPage.title).toTitleCase(),
-      textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeightManager.medium),
-    );
+    return Container();
+    // return Text(
+    //   Methods.getText(_currentPage.title).toTitleCase(),
+    //   textAlign: TextAlign.center,
+    //   style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeightManager.medium),
+    // );
   }
 
   Future<bool> onBackPressed({required BuildContext context, required AdvancedDrawerController advancedDrawerController}) async {

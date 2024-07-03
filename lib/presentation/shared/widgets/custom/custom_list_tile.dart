@@ -30,9 +30,9 @@ class CustomListTile extends StatelessWidget {
     this.contentPadding,
     required this.text,
     this.textColor = ColorsManager.black,
-    this.iconColor = ColorsManager.lightPrimaryColor,
-    this.imageColor = ColorsManager.lightPrimaryColor,
-    this.boxColor = Colors.transparent,
+    this.iconColor = ColorsManager.veryDarkBlue,
+    this.imageColor = ColorsManager.veryDarkBlue,
+    this.boxColor = ColorsManager.shadowblue,
     this.trailingColor = ColorsManager.black,
     this.tileColor = Colors.transparent,
     this.fontWeight,
@@ -56,7 +56,7 @@ class CustomListTile extends StatelessWidget {
     if(isTrailingArrow) {
       return Icon(
         Icons.arrow_forward_ios,
-        color: trailingColor,
+        color: Colors.transparent,
         size: SizeManager.s20,
       );
     }

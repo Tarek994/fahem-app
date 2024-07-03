@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:fahem/core/resources/fonts_manager.dart';
 import 'package:fahem/data/models/category_model.dart';
 import 'package:fahem/data/models/instant_consultation_model.dart';
 import 'package:fahem/data/models/main_category_model.dart';
@@ -180,24 +181,36 @@ class _SearchFilterOrderWidgetState extends State<SearchFilterOrderWidget> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             if(widget.isSupportSearch) Expanded(
+
               child: CustomTextFormField(
+                borderColor: Colors.transparent,
+                //prefixIconData: Icons.search,
+                enabledBorderColor: Colors.white,
+                errorBorderColor: Colors.white,
+
+                suffixIconData: Icons.search,
+                suffixIconColor: ColorsManager.shadowblue,
+                suffixIconSize: 27,
                 enabled: widget.dataState != DataState.loading,
                 controller: _textEditingControllerSearch,
-                hintText: widget.hintText == null ? null : Methods.getText(widget.hintText!).toCapitalized(),
-                prefixIconData: Icons.search,
-                suffixIcon: CustomButton(
-                  onPressed: () async {
-                    FocusScope.of(context).unfocus();
-                    if(_textEditingControllerSearch.text.trim().isEmpty) return;
-                    if(globalSearchText == _textEditingControllerSearch.text.trim()) return;
-                    globalSearchText = _textEditingControllerSearch.text.trim();
-                    widget.reFetchData();
-                  },
-                  buttonColor: ColorsManager.veryDarkBlue,
-                  textColor: ColorsManager.veryDarkBlue,
-                  buttonType: ButtonType.text,
-                  text: Methods.getText(StringsManager.search).toCapitalized(),
+                hintText: widget.hintText == null ? null : widget.hintText!.toString(),
+                hintStyle: TextStyle(fontSize: 14.5,
+                color: ColorsManager.shadowblue,
+                  fontFamily: FontFamilyManager.poppins
                 ),
+                // suffixIcon: CustomButton(
+                //   onPressed: () async {
+                //     FocusScope.of(context).unfocus();
+                //     if(_textEditingControllerSearch.text.trim().isEmpty) return;
+                //     if(globalSearchText == _textEditingControllerSearch.text.trim()) return;
+                //     globalSearchText = _textEditingControllerSearch.text.trim();
+                //     widget.reFetchData();
+                //   },
+                //   buttonColor: ColorsManager.veryDarkBlue,
+                //   textColor: ColorsManager.veryDarkBlue,
+                //   buttonType: ButtonType.text,
+                //   text: Methods.getText(StringsManager.search).toCapitalized(),
+                // ),
                 onChanged: (val) async {
                   if(val.trim().isEmpty && globalSearchText != null) {
                     globalSearchText = null;
@@ -213,62 +226,62 @@ class _SearchFilterOrderWidgetState extends State<SearchFilterOrderWidget> {
                 isSupportClearPrefixIcon: true,
               ),
             ),
-            if(widget.isSupportOrder) IconButton(
-              onPressed: widget.dataState == DataState.loading ? null : () async {
-                FocusScope.of(context).unfocus();
-                await Dialogs.orderByDialog(
-                  context: context,
-                  currentValue: _currentOrderByType,
-                  items: widget.ordersItems,
-                ).then((orderByType) async {
-                  if(orderByType != null) {
-                    if(_currentOrderByType == orderByType) return;
-                    _currentOrderByType = orderByType;
-                    globalOrderBy = _currentOrderByType;
-                    widget.reFetchData();
-                  }
-                });
-              },
-              icon: const Icon(FontAwesomeIcons.sort, size: SizeManager.s20, color: ColorsManager.lightPrimaryColor),
-              padding: EdgeInsets.zero,
-              visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
-            ),
-            if(widget.isSupportFilters && widget.filtersItems.isNotEmpty) ...[
-              const SizedBox(width: SizeManager.s5),
-              IconButton(
-                onPressed: widget.dataState == DataState.loading ? null : () async {
-                  FocusScope.of(context).unfocus();
-                  await Dialogs.showBottomSheet(
-                    context: context,
-                    child: FiltersBtmSheet(
-                      items: widget.filtersItems,
-                      customText: widget.customText,
-                    ),
-                  ).then((_) async {
-                    Map<String, dynamic> currentFiltersSelectionResults = getResults(_currentFiltersSelection);
-                    Map<String, dynamic> filtersResultDataResults = getResults(FiltersResult.filters);
-                    debugPrint(filtersResultDataResults.toString());
-                    if(currentFiltersSelectionResults.toString() == filtersResultDataResults.toString()) return;
-                    _currentFiltersSelection = FiltersResult.filters;
-                    globalFilters = jsonEncode(filtersResultDataResults);
-                    widget.reFetchData();
-                  });
-                },
-                icon: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    const Icon(FontAwesomeIcons.filter, size: SizeManager.s20, color: ColorsManager.lightPrimaryColor),
-                    if(_currentFiltersSelection.isNotEmpty) const PositionedDirectional(
-                      top: -3,
-                      start: -3,
-                      child: CircleAvatar(radius: SizeManager.s5, backgroundColor: ColorsManager.black),
-                    ),
-                  ],
-                ),
-                padding: EdgeInsets.zero,
-                visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
-              ),
-            ],
+            // if(widget.isSupportOrder) IconButton(
+            //   onPressed: widget.dataState == DataState.loading ? null : () async {
+            //     FocusScope.of(context).unfocus();
+            //     await Dialogs.orderByDialog(
+            //       context: context,
+            //       currentValue: _currentOrderByType,
+            //       items: widget.ordersItems,
+            //     ).then((orderByType) async {
+            //       if(orderByType != null) {
+            //         if(_currentOrderByType == orderByType) return;
+            //         _currentOrderByType = orderByType;
+            //         globalOrderBy = _currentOrderByType;
+            //         widget.reFetchData();
+            //       }
+            //     });
+            //   },
+            //   icon: const Icon(FontAwesomeIcons.sort, size: SizeManager.s20, color: ColorsManager.lightPrimaryColor),
+            //   padding: EdgeInsets.zero,
+            //   visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
+            // ),
+            // if(widget.isSupportFilters && widget.filtersItems.isNotEmpty) ...[
+            //   const SizedBox(width: SizeManager.s5),
+            //   IconButton(
+            //     onPressed: widget.dataState == DataState.loading ? null : () async {
+            //       FocusScope.of(context).unfocus();
+            //       await Dialogs.showBottomSheet(
+            //         context: context,
+            //         child: FiltersBtmSheet(
+            //           items: widget.filtersItems,
+            //           customText: widget.customText,
+            //         ),
+            //       ).then((_) async {
+            //         Map<String, dynamic> currentFiltersSelectionResults = getResults(_currentFiltersSelection);
+            //         Map<String, dynamic> filtersResultDataResults = getResults(FiltersResult.filters);
+            //         debugPrint(filtersResultDataResults.toString());
+            //         if(currentFiltersSelectionResults.toString() == filtersResultDataResults.toString()) return;
+            //         _currentFiltersSelection = FiltersResult.filters;
+            //         globalFilters = jsonEncode(filtersResultDataResults);
+            //         widget.reFetchData();
+            //       });
+            //     },
+            //     icon: Stack(
+            //       clipBehavior: Clip.none,
+            //       children: [
+            //         const Icon(FontAwesomeIcons.filter, size: SizeManager.s20, color: ColorsManager.lightPrimaryColor),
+            //         if(_currentFiltersSelection.isNotEmpty) const PositionedDirectional(
+            //           top: -3,
+            //           start: -3,
+            //           child: CircleAvatar(radius: SizeManager.s5, backgroundColor: ColorsManager.black),
+            //         ),
+            //       ],
+            //     ),
+            //     padding: EdgeInsets.zero,
+            //     visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
+            //   ),
+            // ],
           ],
         ),
       ),

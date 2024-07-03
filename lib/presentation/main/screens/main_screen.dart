@@ -60,8 +60,8 @@ class _MainScreenState extends State<MainScreen> {
                           //   icon: const Icon(Icons.menu, color: ColorsManager.black),
                           // ),
                           centerTitle: true,
-                          toolbarHeight: SizeManager.s70,
-                          title: mainProvider.getScreenTitle(context),
+                          toolbarHeight: SizeManager.s0,
+                          //title: mainProvider.getScreenTitle(context),
                         ),
                         body: SafeArea(
                           child: mainProvider.currentPage.page,

@@ -16,6 +16,8 @@ import 'package:fahem/presentation/shared/widgets/custom/custom_button.dart';
 import 'package:fahem/presentation/shared/widgets/custom/custom_full_loading.dart';
 import 'package:fahem/presentation/shared/widgets/my_back_button.dart';
 
+import '../../screens/menu/menu_screen.dart';
+
 class TemplateListScreen extends StatelessWidget {
   final bool isShowLoading;
   final bool isShowOpacityBackground;
@@ -127,7 +129,7 @@ class TemplateListScreen extends StatelessWidget {
     if(searchFilterOrderWidget != null && isSearchFilterOrderWidgetInAction) {
       return [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: SizeManager.s16, vertical: SizeManager.s10),
+          padding: const EdgeInsets.symmetric(horizontal: SizeManager.s16, vertical: SizeManager.s18),
           child: searchFilterOrderWidget!,
         ),
       ];
@@ -171,6 +173,7 @@ class TemplateListScreen extends StatelessWidget {
             physics: const AlwaysScrollableScrollPhysics(),
             slivers: [
               if(isSupportAppBar) SliverAppBar(
+                toolbarHeight: 70,
                 systemOverlayStyle: SystemUiOverlayStyle(
                   statusBarColor: appBarColor ?? (searchFilterOrderWidget == null ? ColorsManager.white : ColorsManager.grey200),
                   statusBarIconBrightness: Brightness.dark,
@@ -178,7 +181,17 @@ class TemplateListScreen extends StatelessWidget {
                 backgroundColor: appBarColor ?? (searchFilterOrderWidget == null ? ColorsManager.white : ColorsManager.white),
                 pinned: pinned,
                 centerTitle: true,
-                leading: isSupportBack ? const MyBackButton() : null,
+                leading: isSupportBack ?  IconButton(
+
+                    onPressed: (){
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => MenuScreen()));
+
+                    }, icon: Image(image: AssetImage('assets/images/menulogo.png',),
+                  height: 20,
+                  width: 20,
+                  fit: BoxFit.fill,
+                )
+                ) : null,
                 actions: _getAction(context),
                 title: customTitle ?? (title != null ? Text(
                   title!,
@@ -193,19 +206,37 @@ class TemplateListScreen extends StatelessWidget {
                 child: Container(
                   color: appBarColor,
                   padding: const EdgeInsets.symmetric(horizontal: SizeManager.s16),
-                  child: searchFilterOrderWidget!,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text('What are you looking for?',
+                            style: TextStyle(
+                                color: ColorsManager.veryDarkBlue,
+                              fontFamily: FontFamilyManager.poppinsb,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      searchFilterOrderWidget!,
+                    ],
+                  ),
                 ),
               ),
-              if(extraWidget != null) SliverToBoxAdapter(child: extraWidget),
-              if(isDataNotEmpty) SliverToBoxAdapter(
-                child: _ViewStyleWidget(
-                  totalResults: totalResults,
-                  viewStyle: currentViewStyle,
-                  changeViewStyleToList: () => changeViewStyleToList(),
-                  changeViewStyleToGrid: () => changeViewStyleToGrid(),
-                  supportedViewStyle: supportedViewStyle,
-                ),
-              ),
+              // if(extraWidget != null) SliverToBoxAdapter(child: extraWidget),
+              // if(isDataNotEmpty) SliverToBoxAdapter(
+              //   child: _ViewStyleWidget(
+              //     totalResults: totalResults,
+              //     viewStyle: currentViewStyle,
+              //     changeViewStyleToList: () => changeViewStyleToList(),
+              //     changeViewStyleToGrid: () => changeViewStyleToGrid(),
+              //     supportedViewStyle: supportedViewStyle,
+              //   ),
+              // ),
               ConditionalBuilder(
                 condition: isDataNotEmpty,
                 builder: (_) => SliverPadding(

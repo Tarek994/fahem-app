@@ -20,7 +20,7 @@ class ServiceListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Hover(
+    return InkWell(
       onTap: () {
         Methods.routeTo(
           context,
@@ -32,19 +32,19 @@ class ServiceListItem extends StatelessWidget {
         );
       },
       //color
-      color: Color(0xF5dee7ef),
+
       child: Container(
-        constraints: const BoxConstraints(
-          minHeight: SizeManager.s60,
-          minWidth: SizeManager.s60
-        ),
+        color: Color(0xF5dee7ef),
+        height: 73,
+        width: 250,
         child: Center(
           child: Text(
             MyProviders.appProvider.isEnglish ? serviceModel.nameEn : serviceModel.nameAr,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
               color: ColorsManager.veryDarkBlue,
-              fontSize: SizeManager.s22,
-              fontWeight: FontWeightManager.bold,
+              fontSize: SizeManager.s17,
+              //fontWeight: FontWeightManager.bold,
+              fontFamily: FontFamilyManager.poppinsb
             ),
           ),
         ),

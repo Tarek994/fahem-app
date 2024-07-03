@@ -24,7 +24,7 @@ class NotFoundWidget extends StatelessWidget {
         children: [
           if(isShowImage) Flexible(
             child: Lottie.asset(
-              LottieManager.notFound,
+              LottieManager.notFound2,
               width: SizeManager.s300,
               height: SizeManager.s300,
             ),

@@ -10,7 +10,10 @@ import 'package:fahem/presentation/screens/search/controllers/search_provider.da
 import 'package:fahem/presentation/shared/widgets/search_filter_order_widget.dart';
 import 'package:fahem/presentation/shared/widgets/template_list_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+
+import '../../menu/menu_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -36,40 +39,95 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Consumer<SearchProvider>(
       builder: (context, provider, _) {
-        return TemplateListScreen(
-          reFetchData: () async => await provider.reFetchData(),
-          scrollController: provider.scrollController,
-          goToInsertScreen: null,
-          scaffoldColor: ColorsManager.shadowblue,
-          isSupportAppBar: true,
-          appBarColor: Colors.transparent,
-           title: 'Fahem',
-          searchFilterOrderWidget: SearchFilterOrderWidget(
-            hintText: StringsManager.searchByName,
-            ordersItems: const [OrderByType.accountsNewestFirst, OrderByType.accountsOldestFirst],
-            filtersItems: const [FiltersType.gender, FiltersType.isFeatured, FiltersType.mainCategory, FiltersType.category],
-            dataState: provider.dataState,
+        return Scaffold(
+          // appBar: AppBar(
+          //   toolbarHeight: SizeManager.s70,
+          //   centerTitle: true,
+          //   backgroundColor: ColorsManager.shadowblue,
+          //   leading:  Column(
+          //     children: [
+          //       IconButton(
+          //
+          //           onPressed: (){
+          //             Navigator.push(context,MaterialPageRoute(builder: (context) => MenuScreen()));
+          //
+          //           }, icon: Image(image: AssetImage('assets/images/menulogo.png',),
+          //         height: 25,
+          //         width: 25,
+          //         fit: BoxFit.fill,
+          //       )
+          //       ),
+          //       SizedBox(
+          //         width: 30,
+          //         height: 30,
+          //         child: Text('What are you looking for ?',
+          //           style: TextStyle(
+          //             color: ColorsManager.veryDarkBlue
+          //           ),
+          //         ),
+          //       )
+          //     ],
+          //   ),
+          //
+          //   title: Container(
+          //     height: 40,
+          //     width: 100,
+          //     decoration: BoxDecoration(
+          //         image: DecorationImage(
+          //             image:AssetImage('assets/icons/fahemlogo.png'
+          //             ),
+          //             fit: BoxFit.cover
+          //         )
+          //     ),
+          //   ),
+          // ),
+          body: TemplateListScreen(
             reFetchData: () async => await provider.reFetchData(),
-            customText: {
-              FiltersType.dateOfCreated.name: StringsManager.joinDate,
-              FiltersType.isFeatured.name: StringsManager.verifiedAccounts,
-            },
+            scrollController: provider.scrollController,
+            goToInsertScreen: null,
+
+             scaffoldColor: ColorsManager.shadowblue,
+            isSupportAppBar: true,
+            appBarColor: Colors.transparent,
+             //title: 'Fahem',
+             customTitle: Container(
+               height: 40,
+               width: 100,
+               decoration: BoxDecoration(
+                   image: DecorationImage(
+                       image:AssetImage('assets/icons/fahemlogo.png'
+                       ),
+                       fit: BoxFit.cover
+                   )
+               ),
+             ),
+            searchFilterOrderWidget: SearchFilterOrderWidget(
+              hintText: StringsManager.searchByName2,
+              ordersItems: const [OrderByType.accountsNewestFirst, OrderByType.accountsOldestFirst],
+              filtersItems: const [FiltersType.gender, FiltersType.isFeatured, FiltersType.mainCategory, FiltersType.category],
+              dataState: provider.dataState,
+              reFetchData: () async => await provider.reFetchData(),
+              customText: {
+                FiltersType.dateOfCreated.name: StringsManager.joinDate,
+                FiltersType.isFeatured.name: StringsManager.verifiedAccounts,
+              },
+            ),
+            isDataNotEmpty: provider.accounts.isNotEmpty,
+            dataCount: provider.accounts.length,
+            totalResults: provider.paginationModel == null ? 0 : provider.paginationModel!.total,
+            supportedViewStyle: const [ViewStyle.list],
+            currentViewStyle: provider.viewStyle,
+            changeViewStyleToList: () => provider.changeViewStyle(ViewStyle.list),
+            changeViewStyleToGrid: () => provider.changeViewStyle(ViewStyle.grid),
+            listItemBuilder: (context, index) => AccountListItem(
+              accountModel: provider.accounts[index],
+              index: index,
+            ),
+            gridItemBuilder: null,
+            dataState: provider.dataState,
+            hasMore: provider.hasMore,
+            noDataMsgInScreen: StringsManager.thereAreNoAccounts,
           ),
-          isDataNotEmpty: provider.accounts.isNotEmpty,
-          dataCount: provider.accounts.length,
-          totalResults: provider.paginationModel == null ? 0 : provider.paginationModel!.total,
-          supportedViewStyle: const [ViewStyle.list],
-          currentViewStyle: provider.viewStyle,
-          changeViewStyleToList: () => provider.changeViewStyle(ViewStyle.list),
-          changeViewStyleToGrid: () => provider.changeViewStyle(ViewStyle.grid),
-          listItemBuilder: (context, index) => AccountListItem(
-            accountModel: provider.accounts[index],
-            index: index,
-          ),
-          gridItemBuilder: null,
-          dataState: provider.dataState,
-          hasMore: provider.hasMore,
-          noDataMsgInScreen: StringsManager.thereAreNoAccounts,
         );
       },
     );

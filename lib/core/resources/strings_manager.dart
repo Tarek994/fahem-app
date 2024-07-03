@@ -402,6 +402,7 @@ class StringsManager {
   static const String pleaseWait = "pleaseWait";
   // static const String searchHere = "searchHere";
   static const String searchByName = "searchByName";
+  static const String searchByName2 = "Search here . . .";
   static const String searchByBalance = "searchByBalance";
   static const String searchByConsultationId = "searchByConsultationId";
   static const String searchByComment = "searchByComment";
