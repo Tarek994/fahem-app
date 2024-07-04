@@ -5,6 +5,8 @@ class FontFamilyManager {
   static const String avenirArabic = 'AvenirArabic';
   static const String poppins = 'Poppins';
   static const String poppinsb = 'Poppinsb';
+  static const String Montex = 'Montex';
+  static const String Monthe = 'Monthe';
 }
 
 class FontWeightManager {

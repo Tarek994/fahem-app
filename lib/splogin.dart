@@ -1,5 +1,7 @@
 import 'package:fahem/core/resources/colors_manager.dart';
+import 'package:fahem/core/resources/fonts_manager.dart';
 import 'package:fahem/presentation/screens/authentication/screens/login_with_phone_screen.dart';
+import 'package:fahem/presentation/screens/menu/menu_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'core/resources/routes_manager.dart';
@@ -14,6 +16,7 @@ class loginReg extends StatefulWidget {
 
 class _LoginRegState extends State<loginReg> {
   bool _rememberMe = false;
+  bool _obscureText = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,20 +30,26 @@ class _LoginRegState extends State<loginReg> {
           width: 100,
           decoration: BoxDecoration(
             image: DecorationImage(
-              colorFilter: ColorFilter.mode(Colors.white, BlendMode.overlay),
-              image: AssetImage('assets/icons/fahemlogo.png'),
+              image: AssetImage('assets/images/fahemlogoWhite.png'),
               fit: BoxFit.cover,
             ),
           ),
         ),
         leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.menu, color: Colors.white),
+            onPressed: (){
+              Navigator.push(context,MaterialPageRoute(builder: (context) => MenuScreen()));
+            },
+            icon: Image(
+              image: AssetImage('assets/images/leadingwhite.png'),
+              height: 25,
+              width: 25,
+              fit: BoxFit.fill,
+            )
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.search, color: Colors.white),
+            icon: Icon(Icons.search, color: Colors.white, size: 27),
           ),
         ],
       ),
@@ -51,15 +60,20 @@ class _LoginRegState extends State<loginReg> {
             child: LayoutBuilder(
               builder: (context, constraints) {
                 return Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(25.0),
                   child: Form(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        SizedBox(height: 60),
                         Text(
                           'Username',
-                          style: TextStyle(color: Colors.white, fontSize: 25),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontFamily: FontFamilyManager.Monthe
+                          ),
                         ),
                         SizedBox(height: 8),
                         TextFormField(
@@ -67,24 +81,39 @@ class _LoginRegState extends State<loginReg> {
                             fillColor: Colors.white,
                             filled: true,
                             labelText: 'enter your username',
-                            labelStyle: TextStyle(color: Colors.black54),
+                            labelStyle: TextStyle(color: Colors.black54, fontFamily: FontFamilyManager.Monthe),
                             border: OutlineInputBorder(),
                           ),
                         ),
                         SizedBox(height: 16),
                         Text(
                           'Password',
-                          style: TextStyle(color: Colors.white, fontSize: 25),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontFamily: FontFamilyManager.Monthe
+                          ),
                         ),
                         SizedBox(height: 8),
                         TextFormField(
-                          obscureText: true,
+                          obscureText: _obscureText,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
                             filled: true,
                             labelText: 'Password',
-                            labelStyle: TextStyle(color: Colors.black54),
+                            labelStyle: TextStyle(color: Colors.black54, fontFamily: FontFamilyManager.Monthe),
                             border: OutlineInputBorder(),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _obscureText ? Icons.visibility : Icons.visibility_off,
+                                color: Colors.grey,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _obscureText = !_obscureText;
+                                });
+                              },
+                            ),
                           ),
                         ),
                         SizedBox(height: 16),
@@ -103,19 +132,31 @@ class _LoginRegState extends State<loginReg> {
                                 },
                               ),
                             ),
-                            Text('Remember me', style: TextStyle(color: Colors.white)),
+                            Text(
+                                'Remember me',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: FontFamilyManager.Monthe
+                                )
+                            ),
                             Spacer(),
                             TextButton(
                               onPressed: () {
                                 // Add forgot password functionality
                               },
-                              child: Text('Forgot Password?', style: TextStyle(color: Colors.lightBlue)),
+                              child: Text(
+                                  'Forgot Password?',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: FontFamilyManager.Monthe
+                                  )
+                              ),
                             ),
                           ],
                         ),
                         SizedBox(height: 16),
                         SizedBox(
-                          width: double.infinity,
+                          width: double.infinity-27,
                           height: 50,
                           child: ElevatedButton(
                             onPressed: () {
@@ -124,31 +165,74 @@ class _LoginRegState extends State<loginReg> {
                             child: Text(
                               'Login',
                               style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontFamily: FontFamilyManager.Monthe
                               ),
                             ),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0x5977A6FF),
+                              backgroundColor: Color(0xf45978a7),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(height: 16),
-                        Center(
-                          child: Text('Or continue with:', style: TextStyle(color: Colors.white)),
+                        SizedBox(height: 46),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 1,
+                                width: 20,
+                                color: Colors.white,
+                              ),
+                              SizedBox(width: 7),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 8),
+                                child: Text(
+                                  'Or',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.5,
+                                      fontFamily: FontFamilyManager.Monthe
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 7),
+                              Container(
+                                height: 1,
+                                width: 20,
+                                color: Colors.white,
+                              ),
+                            ],
+                          ),
                         ),
-                        SizedBox(height: 16),
+                        SizedBox(height: 46),
+                        Center(
+                          child: Text(
+                              'continue with',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontFamily: FontFamilyManager.Monthe
+                              )
+                          ),
+                        ),
+                        SizedBox(height: 19),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            _buildCircularButton(Icons.phone, 'Phone',(){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginWithPhoneScreen(),));
+                            _buildCircularButton(Icons.phone, 'Phone', () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginWithPhoneScreen()));
                             }),
-                            _buildCircularButton(Icons.email, 'Email',(){}),
-                            _buildCircularButton(Icons.more_horiz, 'Other',(){}),
+                            SizedBox(width: 18),
+                            _buildCircularButton(Icons.email, 'Email', () {}),
+                            SizedBox(width: 18),
+                            _buildCircularButton(Icons.more_horiz, 'Other', () {}),
                           ],
                         ),
                       ],
@@ -165,18 +249,27 @@ class _LoginRegState extends State<loginReg> {
 
   Widget _buildCircularButton(IconData icon, String label, VoidCallback onPressed) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         ElevatedButton(
-          onPressed: onPressed,  // Direct assignment, not a function call
-          child: Icon(icon, color: Colors.white),
+          onPressed: onPressed,
+          child: Icon(icon, color: Colors.white, size: 22),
           style: ElevatedButton.styleFrom(
             shape: CircleBorder(),
-            backgroundColor: Color(0x5977A6FF),
-            padding: EdgeInsets.all(20),
+            backgroundColor: Color(0xf45978a7),
+            padding: EdgeInsets.all(6),
+            minimumSize: Size(50, 50),
           ),
         ),
-        SizedBox(height: 8),
-        Text(label, style: TextStyle(color: Colors.white)),
+        SizedBox(height: 4),
+        Text(
+          label,
+          style: TextStyle(
+              color: Colors.white,
+              fontSize: 12,
+              fontFamily: FontFamilyManager.Monthe
+          ),
+        ),
       ],
     );
   }

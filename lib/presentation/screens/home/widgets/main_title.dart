@@ -64,6 +64,7 @@ class MainTitle extends StatelessWidget {
           buttonType: ButtonType.postImage,
           text: Methods.getText(StringsManager.more).toTitleCase(),
           imageName: IconsManager.arrowCircleLeft,
+          imageColor: ColorsManager.shadowblue,
           textFontWeight: FontWeightManager.bold,
           fontSize: SizeManager.s18,
           imageSize: SizeManager.s18,

@@ -33,7 +33,7 @@ class AccountListItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         //color: index % 2 == 0 ? ColorsManager.lightPrimaryColor : ColorsManager.lightSecondaryColor,
-        borderRadius: BorderRadius.circular(SizeManager.s10),
+        borderRadius: BorderRadius.circular(SizeManager.s5),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

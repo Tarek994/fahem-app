@@ -112,3 +112,11 @@ flutter:
       fonts:
         - asset: assets/fonts/Poppins/Poppins-Bold.ttf
           weight: 900
+    - family: Montex
+      fonts:
+        - asset: assets/fonts/Mont/Mont-ExtraLightDEMO.otf
+          weight: 500
+    - family: Monthe
+      fonts:
+        - asset: assets/fonts/Mont/Mont-HeavyDEMO.otf
+          weight: 500
